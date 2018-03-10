@@ -42,28 +42,32 @@
      inkscape:window-height="1284"
      id="namedview5"
      showgrid="false"
-     fit-margin-top="1.5"
-     fit-margin-left="1.5"
-     fit-margin-right="1.5"
-     fit-margin-bottom="1.5"
-     inkscape:zoom="18.541911"
-     inkscape:cx="30.458275"
-     inkscape:cy="7.2208212"
+     fit-margin-top="1"
+     fit-margin-left="1"
+     fit-margin-right="1"
+     fit-margin-bottom="1"
+     inkscape:zoom="26.222222"
+     inkscape:cx="12.555339"
+     inkscape:cy="7.3178963"
      inkscape:window-x="179"
      inkscape:window-y="51"
      inkscape:window-maximized="0"
      inkscape:current-layer="svg3" />
-  <path
-     d="M 12.833334,9.692306 15.333333,12 12.833334,14.307693 14.5,15.846156 18.666667,12 14.5,8.153843 Z m -1.666667,4.615387 -2.5,-2.307693 2.5,-2.307694 L 9.5,8.153843 5.3333333,12 9.5,15.846156 Z"
-     id="path2"
-     inkscape:connector-curvature="0"
-     style="fill:#616161;fill-opacity:1;stroke:none;stroke-width:2;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-     sodipodi:nodetypes="cccccccccccccc" />
-  <rect
-     style="color:#000000;overflow:visible;opacity:1;fill:none;fill-opacity:1;stroke:#616161;stroke-width:1.81818175;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:markers fill stroke"
-     id="rect812"
-     width="18.18182"
-     height="18.181818"
-     x="2.9090903"
-     y="2.9090905" />
+  <g
+     id="g818"
+     transform="translate(-0.66666607,0.66666718)">
+    <path
+       sodipodi:nodetypes="cccccccccccccc"
+       style="fill:#616161;fill-opacity:1;stroke:none;stroke-width:2.13333344;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       inkscape:connector-curvature="0"
+       id="path2"
+       d="m 13.555555,8.871793 2.666666,2.46154 -2.666666,2.461539 1.777777,1.641028 4.444444,-4.102567 -4.444444,-4.1025672 z M 11.777777,13.794872 9.1111109,11.333333 11.777777,8.871793 9.9999994,7.2307658 5.5555553,11.333333 9.9999994,15.4359 Z" />
+    <rect
+       y="1.636363"
+       x="2.9696963"
+       height="19.39394"
+       width="19.39394"
+       id="rect812"
+       style="color:#000000;overflow:visible;opacity:1;fill:none;fill-opacity:1;stroke:#616161;stroke-width:1.93939376;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:markers fill stroke" />
+  </g>
 </svg>

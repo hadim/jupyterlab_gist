@@ -1,7 +1,17 @@
 :root {
-	--jp-icon-gist: url('icons/gist.svg');
+	--jp-icon-post-gist: url('icons/postGistIcon.svg');
+	--jp-icon-delete-gist: url('icons/deleteGistIcon.svg');
+	--jp-icon-copy-url-gist: url('icons/copyURLGistIcon.svg');
 }
 
-.jp-Toolbar-button.jp-GistButton {
-	background-image: var(--jp-icon-gist);
+.jp-Toolbar-button.jp-PostGistButton {
+	background-image: var(--jp-icon-post-gist);
+}
+
+.jp-Toolbar-button.jp-DeleteGistButton {
+	background-image: var(--jp-icon-delete-gist);
+}
+
+.jp-Toolbar-button.jp-CopyURLGistButton {
+	background-image: var(--jp-icon-copy-url-gist);
 }

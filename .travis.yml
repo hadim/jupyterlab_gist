@@ -24,7 +24,6 @@ install:
 - pip install selenium
 - pip install --pre jupyterlab
 script:
-- cd jupyterlab_gist
 - yarn install
 - yarn build
 - jupyter labextension link .

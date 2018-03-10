@@ -1,0 +1,7 @@
+:root {
+	--jp-icon-gist: url('icons/gist.svg');
+}
+
+.jp-Toolbar-button.jp-GistButton {
+	background-image: var(--jp-icon-gist);
+}

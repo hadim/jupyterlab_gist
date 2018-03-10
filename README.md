@@ -1,4 +1,5 @@
 # jupyterlab_gist
+[![Build Status](https://travis-ci.org/hadim/jupyterlab_gist.svg?branch=master)](https://travis-ci.org/hadim/jupyterlab_gist)
 
 A Jupyterlab extension to post notebook to gist.
 

@@ -25,8 +25,9 @@ install:
 - pip install --pre jupyterlab
 script:
 - cd jupyterlab_gist
-- jupyter labextension install .
-- jupyter lab clean
+- yarn install
+- yarn build
 - jupyter labextension link .
 - jupyter lab build
+- jupyter labextension list
 - python -m jupyterlab.selenium_check

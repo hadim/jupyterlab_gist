@@ -21,16 +21,22 @@ jupyter labextension install @hadim/jupyterlab_gist
 For a development install (requires npm version 4 or later), do the following in the repository directory:
 
 ```bash
-npm install
-npm run build
+yarn install
+yarn build
 jupyter labextension link .
 ```
 
 To rebuild the package and the JupyterLab app:
 
 ```bash
-npm run build
-jupyter lab build
+yarn watch
+jupyter lab --watch
+```
+
+To release a new version:
+
+```bash
+yarn publish
 ```
 
 ## Authors

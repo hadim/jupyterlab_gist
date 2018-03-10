@@ -1,6 +1,6 @@
 {
   "name": "@hadim/jupyterlab_gist",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "A Jupyterlab extension to post notebook to gist.",
   "keywords": [
     "jupyter",

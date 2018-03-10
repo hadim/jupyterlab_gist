@@ -4,8 +4,6 @@ A Jupyterlab extension to post notebook to gist.
 
 ![](./screenshot.png)
 
-The gist url is displayed in the browser console. I am currently looking a better way to display it to the user.
-
 ## Prerequisites
 
 * JupyterLab

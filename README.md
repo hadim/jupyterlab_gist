@@ -13,7 +13,7 @@ The gist url is displayed in the browser console. I am currently looking a bette
 ## Installation
 
 ```bash
-jupyter labextension install jupyterlab_gist
+jupyter labextension install @hadim/jupyterlab_gist
 ```
 
 ## Development

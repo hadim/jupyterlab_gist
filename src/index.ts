@@ -41,96 +41,105 @@ export
 class GistButtonExtension implements DocumentRegistry.IWidgetExtension<NotebookPanel, INotebookModel> {
 
   createNew(panel: NotebookPanel, context: DocumentRegistry.IContext<INotebookModel>): IDisposable {
-
-    const metadata = panel.notebook.model.metadata;
-
-    // Init notebook metadata
-    if(!metadata.has("gist_info")) {
-    	metadata.set("gist_info", { gist_url: null, gist_id: null });
-    }
-    const gist_info = metadata.get('gist_info') as IGistInfoMetadata;
-
-    let postGistCallback = () => {
-
-      const title = panel.title["_label"];
-      const content = panel.notebook.model.toString()
-
-      let data: any = {};
-      data.description = "Gist for";
-      data.public = true;
-      data.files = {};
-      data.files[title] = {content: content};
-
-      console.log("Sending the gist request now for " + title + ".");
-
-      postGistRequest(data, gist_info["gist_id"])
-        .then(data => {
-          gist_info["gist_url"] = data["html_url"];
-          gist_info["gist_id"] = data["id"];
-
-          console.log("The gist for " + title + " is available at " + gist_info["gist_url"]);
-
-          // Need to be authtenticated to delete gist
-          deleteButton.setHidden(true);
-          copyURLButton.setHidden(false);
-        })
-        .catch(error => console.error(error));
-    };
-
-    const postButton = new ToolbarButton({
-      className: 'jp-PostGistButton',
-      onClick: postGistCallback,
-      tooltip: 'Post Gist'
-    });
-    panel.toolbar.insertItem(9, 'postGist', postButton);
-
-    let deleteGistCallback = () => {
-
-      deleteGistRequest(gist_info["gist_id"])
-        .then(() => {
-          console.log("Delete gist for " + panel.title["_label"] + ": " + gist_info["gist_url"]);
-          deleteButton.setHidden(true);
-          copyURLButton.setHidden(true);
-        })
-        .catch(error => console.error(error));
-    };
-
-    // Add delete button if a gist_info["gist_url"] exists
-    const deleteButton = new ToolbarButton({
-      className: 'jp-DeleteGistButton',
-      onClick: deleteGistCallback,
-      tooltip: 'Delete Gist'
-    });
-    panel.toolbar.insertItem(10, 'deleteGist', deleteButton);
-
-    let copyURLGistCallback = () => {
-      copyToClipboard(gist_info["gist_url"]);
-      console.log("URL copied to clipboard");
-      console.log("The gist for " + panel.title["_label"] + " is available at " + gist_info["gist_url"]);
-    };
-
-    // Add copy url button if a gist_info["gist_url"] exists
-    const copyURLButton = new ToolbarButton({
-      className: 'jp-CopyURLGistButton',
-      onClick: copyURLGistCallback,
-      tooltip: 'Copy URL Gist to clipboard'
-    });
-    panel.toolbar.insertItem(11, 'copyURLGist', copyURLButton);
-
-    if(gist_info["gist_id"] == null) {
-      deleteButton.setHidden(true);
-      copyURLButton.setHidden(true);
-    }
-
-    // Need to be authtenticated to delete gist
-    deleteButton.setHidden(true);
-
-    return new DisposableDelegate(() => {
-      postButton.dispose();
-      deleteButton.dispose();
-    });
+		context.ready.then(() => {
+  		return initGistPlugin(panel);
+  	});
+  	return new DisposableDelegate(() => {});
   }
 }
+
+function initGistPlugin(panel: NotebookPanel): IDisposable {
+
+	const metadata = panel.notebook.model.metadata;
+
+	// Init notebook metadata
+	if(!metadata.has("gist_info")) {
+		// TODO: would be nice to keep the post date.
+		metadata.set("gist_info", { gist_url: null, gist_id: null });
+	}
+	const gist_info = metadata.get('gist_info') as IGistInfoMetadata;
+
+	let postGistCallback = () => {
+
+	  const title = panel.title["_label"];
+	  const content = panel.notebook.model.toString()
+
+	  let data: any = {};
+	  data.description = "Gist for";
+	  data.public = true;
+	  data.files = {};
+	  data.files[title] = {content: content};
+
+	  console.log("Sending the gist request now for " + title + ".");
+
+	  postGistRequest(data, gist_info["gist_id"])
+	    .then(data => {
+	      gist_info["gist_url"] = data["html_url"];
+	      gist_info["gist_id"] = data["id"];
+
+	      console.log("The gist for " + title + " is available at " + gist_info["gist_url"]);
+
+	      // Need to be authtenticated to delete gist
+	      deleteButton.setHidden(true);
+	      copyURLButton.setHidden(false);
+	    })
+	    .catch(error => console.error(error));
+	};
+
+	const postButton = new ToolbarButton({
+	  className: 'jp-PostGistButton',
+	  onClick: postGistCallback,
+	  tooltip: 'Post Gist'
+	});
+	panel.toolbar.insertItem(9, 'postGist', postButton);
+
+	let deleteGistCallback = () => {
+
+	  deleteGistRequest(gist_info["gist_id"])
+	    .then(() => {
+	      console.log("Delete gist for " + panel.title["_label"] + ": " + gist_info["gist_url"]);
+	      deleteButton.setHidden(true);
+	      copyURLButton.setHidden(true);
+	    })
+	    .catch(error => console.error(error));
+	};
+
+	// Add delete button if a gist_info["gist_url"] exists
+	const deleteButton = new ToolbarButton({
+	  className: 'jp-DeleteGistButton',
+	  onClick: deleteGistCallback,
+	  tooltip: 'Delete Gist'
+	});
+	panel.toolbar.insertItem(10, 'deleteGist', deleteButton);
+
+	let copyURLGistCallback = () => {
+	  copyToClipboard(gist_info["gist_url"]);
+	  console.log("URL copied to clipboard");
+	  console.log("The gist for " + panel.title["_label"] + " is available at " + gist_info["gist_url"]);
+	};
+
+	// Add copy url button if a gist_info["gist_url"] exists
+	const copyURLButton = new ToolbarButton({
+	  className: 'jp-CopyURLGistButton',
+	  onClick: copyURLGistCallback,
+	  tooltip: 'Copy URL Gist to clipboard'
+	});
+	panel.toolbar.insertItem(11, 'copyURLGist', copyURLButton);
+
+	if(gist_info["gist_id"] == null) {
+	  deleteButton.setHidden(true);
+	  copyURLButton.setHidden(true);
+	}
+
+	// Need to be authtenticated to delete gist
+	deleteButton.setHidden(true);
+
+	return new DisposableDelegate(() => {
+	  postButton.dispose();
+	  deleteButton.dispose();
+	});
+
+};
 
 function activate(app: JupyterLab) {
   app.docRegistry.addWidgetExtension('Notebook', new GistButtonExtension());

@@ -1,3 +1,5 @@
+**IMPORTANT: unfortunately GH deprecated Gist creation without authentication: https://blog.github.com/2018-02-18-deprecation-notice-removing-anonymous-gist-creation/ So this extension won't work before a GH auth feature is added to it. PRs are welcome!**
+
 # jupyterlab_gist
 [![Build Status](https://travis-ci.org/hadim/jupyterlab_gist.svg?branch=master)](https://travis-ci.org/hadim/jupyterlab_gist)
 

@@ -131,7 +131,8 @@ function initGistPlugin(panel: NotebookPanel): IDisposable {
 	  copyURLButton.setHidden(true);
 	}
 
-	// Need to be authtenticated to delete gist
+	// Need to be authtenticated to delete gist.
+	// So we disable this button at the moment.
 	deleteButton.setHidden(true);
 
 	return new DisposableDelegate(() => {
@@ -146,7 +147,7 @@ function activate(app: JupyterLab) {
 };
 
 function postGistRequest(data: any, gist_id: string) {
-  let url = "https://api.github.com/gists";
+  let url = "https://api.github.com/gists/";
   let method = "POST";
 
   // TODO: as anonymous user I don't think it's possible

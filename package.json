@@ -1,6 +1,6 @@
 {
   "name": "@hadim/jupyterlab_gist",
-  "version": "0.3.2",
+  "version": "0.4.0",
   "description": "A Jupyterlab extension to post notebook to gist.",
   "keywords": [
     "jupyter",
@@ -15,7 +15,8 @@
   "author": "Hadrien Mary",
   "files": [
     "lib/**/*.{d.ts,eot,gif,html,jpg,js,js.map,json,png,svg,woff2,ttf}",
-    "style/**/*.{css,eot,gif,html,jpg,json,png,svg,woff2,ttf}"
+    "style/**/*.{css,eot,gif,html,jpg,json,png,svg,woff2,ttf}",
+    "schema/*.json"
   ],
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
@@ -26,17 +27,24 @@
   "scripts": {
     "build": "tsc",
     "clean": "rimraf lib",
+    "prepare": "npm run clean && npm run build",
     "watch": "tsc -w"
   },
   "dependencies": {
-    "@jupyterlab/application": "^0.16.3",
-    "@jupyterlab/notebook": "^0.16.3"
+    "@jupyterlab/application": "^0.19.1",
+    "@jupyterlab/apputils": "^0.19.1",
+    "@jupyterlab/docregistry": "^0.19.1",
+    "@jupyterlab/notebook": "^0.19.2",
+    "@phosphor/disposable": "^1.1.2",
+    "github-api": "^3.0.0"
   },
   "devDependencies": {
     "rimraf": "~2.6.2",
-    "typescript": "~2.9.2"
+    "tslint": "^5.14.0",
+    "typescript": "~3.3.4000"
   },
   "jupyterlab": {
-    "extension": true
+    "extension": true,
+    "schemaDir": "schema"
   }
 }

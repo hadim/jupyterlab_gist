@@ -1,0 +1,16 @@
+{
+  "jupyter.lab.setting-icon-class": "jp-GistExtension",
+  "jupyter.lab.setting-icon-label": "Gist Extension",
+  "title": "Gist Extension",
+  "description": "Gist Extension settings.",
+  "properties": {
+    "token": {
+      "title": "GitHub Token",
+      "description": "You can generate a token from https://github.com/settings/tokens.",
+      "default": "",
+      "type": "string"
+    }
+  },
+  "additionalProperties": false,
+  "type": "object"
+}

@@ -4,14 +4,14 @@
 	--jp-icon-copy-url-gist: url('icons/copyURLGistIcon.svg');
 }
 
-.jp-Toolbar-button.jp-PostGistButton {
-	background-image: var(--jp-icon-post-gist);
+.jp-Gist-PostGistButton {
+	content: var(--jp-icon-post-gist);
 }
 
-.jp-Toolbar-button.jp-DeleteGistButton {
-	background-image: var(--jp-icon-delete-gist);
+.jp-Gist-DeleteGistButton {
+	content: var(--jp-icon-delete-gist);
 }
 
-.jp-Toolbar-button.jp-CopyURLGistButton {
-	background-image: var(--jp-icon-copy-url-gist);
+.jp-Gist-CopyURLGistButton {
+	content: var(--jp-icon-copy-url-gist);
 }
